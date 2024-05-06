@@ -1,0 +1,33 @@
+.principal{
+    
+    border: 1mm black solid;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    width: 500px;
+    text-align: center;
+    box-shadow: 1mm 1mm 1mm 1mm gray, 2mm 2mm 2mm 2mm rgb(139, 139, 213),3mm 3mm 3mm 3mm rgb(119, 119, 214), 4mm 4mm 4mm 4mm rgb(62, 62, 241), 5mm 5mm 5mm 5mm rgb(22, 241, 51);
+    border-radius: 2mm;
+    background-color: rgb(220, 235, 245);
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-areas: 
+    ". milieu ."
+    ;
+    padding-top: 10px;
+}
+
+#image{
+    max-width: 90%;
+}
+
+#milieu{
+    grid-area: milieu;
+}
+#Nutilisateur{
+    height: 420px;
+}
+
+#Ncle{
+    height: 300px;
+}

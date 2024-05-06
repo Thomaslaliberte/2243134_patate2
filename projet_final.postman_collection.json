@@ -1,0 +1,457 @@
+{
+	"info": {
+		"_postman_id": "7c2418be-8851-4c16-9221-99b4a5f79fd4",
+		"name": "projet_final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32422487"
+	},
+	"item": [
+		{
+			"name": "creeUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nom\": \"Laliberte\",\r\n    \"prenom\": \"Thomas\",\r\n    \"courriel\": \"thomas.laliberthe@icloud.com\",\r\n    \"mot_de_passe\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://two243134-patate1.onrender.com/api/users",
+					"protocol": "https",
+					"host": [
+						"two243134-patate1",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "nouvCle",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"courriel\":\"thomas.laliberthe@icloud.com\",\r\n    \"mot_de_passe\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://two243134-patate1.onrender.com/api/users/cle",
+					"protocol": "https",
+					"host": [
+						"two243134-patate1",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"users",
+						"cle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "creeTache",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "cle-api 1e5855a7-6ccd-4604-afe6-4684cbbf4ebc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titre\": \"exister\",\r\n    \"description\": \"ne pas deranger vincent\",\r\n    \"date_echeance\": \"2003-01-02\",\r\n    \"complete\": false\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://two243134-patate1.onrender.com/api/taches/",
+					"protocol": "https",
+					"host": [
+						"two243134-patate1",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"taches",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modifTache",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "cle_api 1e5855a7-6ccd-4604-afe6-4684cbbf4ebc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titre\": \"test modifier\",\r\n    \"description\": \"cette tache a ete modifier\",\r\n    \"date_echeance\": \"2015-06-12\",\r\n    \"complete\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://two243134-patate1.onrender.com/api/taches/1",
+					"protocol": "https",
+					"host": [
+						"two243134-patate1",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"taches",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "changerStatusTache",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "cle_api 1e5855a7-6ccd-4604-afe6-4684cbbf4ebc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"complete\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://two243134-patate1.onrender.com/api/taches/status/1",
+					"protocol": "https",
+					"host": [
+						"two243134-patate1",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"taches",
+						"status",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "suppTache",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "cle_api 1e5855a7-6ccd-4604-afe6-4684cbbf4ebc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://two243134-patate1.onrender.com/api/taches/3",
+					"protocol": "https",
+					"host": [
+						"two243134-patate1",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"taches",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "toutesTaches",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "cle_api 1e5855a7-6ccd-4604-afe6-4684cbbf4ebc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"complete\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://two243134-patate1.onrender.com/api/taches/liste",
+					"protocol": "https",
+					"host": [
+						"two243134-patate1",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"taches",
+						"liste"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "uneTache",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "cle_api 1e5855a7-6ccd-4604-afe6-4684cbbf4ebc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://two243134-patate1.onrender.com/api/taches/1",
+					"protocol": "https",
+					"host": [
+						"two243134-patate1",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"taches",
+						"1"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "creeSousTache",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "cle-api 1e5855a7-6ccd-4604-afe6-4684cbbf4ebc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tache_id\":\"1\",\r\n    \"titre\":\"sous-tache\",\r\n    \"complete\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://two243134-patate1.onrender.com/api/sousTaches",
+					"protocol": "https",
+					"host": [
+						"two243134-patate1",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"sousTaches"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modifierSousTache",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "cle_api 1e5855a7-6ccd-4604-afe6-4684cbbf4ebc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titre\": \"test modifier\",\r\n    \"complete\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://two243134-patate1.onrender.com/api/sousTaches/1",
+					"protocol": "https",
+					"host": [
+						"two243134-patate1",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"sousTaches",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "changerStatusSousTache",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "cle_api 1e5855a7-6ccd-4604-afe6-4684cbbf4ebc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tache_id\": 1,\r\n    \"complete\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://two243134-patate1.onrender.com/api/sousTaches/status/1",
+					"protocol": "https",
+					"host": [
+						"two243134-patate1",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"sousTaches",
+						"status",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "supprimerSousTache",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "cle_api 1e5855a7-6ccd-4604-afe6-4684cbbf4ebc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tache_id\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://two243134-patate1.onrender.com/api/sousTaches/1",
+					"protocol": "https",
+					"host": [
+						"two243134-patate1",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"sousTaches",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,748 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mui/mui-toolpad/v0.1.54/docs/schemas/v1/definitions.json#properties/Page
+
+apiVersion: v1
+kind: page
+spec:
+  title: Default page
+  alias:
+    - fwykOmv
+  content:
+    - component: Checkbox
+      name: checkboxComplete
+      props:
+        mode: checkbox
+        label: complete
+    - component: PageRow
+      name: pageRow
+      props:
+        justifyContent: start
+      children:
+        - component: DataGrid
+          name: dataGridTache
+          props:
+            rows:
+              $$jsExpression: toutesTaches.rows?toutesTaches.rows:[0]
+            columns:
+              - field: titre
+                type: string
+                width: 108
+              - field: description
+                type: string
+                width: 185
+              - field: date_debut
+                type: dateTime
+                width: 111
+              - field: date_echeance
+                type: dateTime
+                width: 129
+              - field: complete
+                type: boolean
+                width: 101
+          layout:
+            columnSize: 1.0787171790178274
+            height: 312
+        - component: PageColumn
+          name: pageColumn
+          layout:
+            columnSize: 0.9212828209821726
+          children:
+            - component: DataGrid
+              name: dataGridSousTache
+              layout:
+                columnSize: 1
+              props:
+                rows:
+                  $$jsExpression: detailTache.data?detailTache.data.sousTache:[0]
+                columns:
+                  - field: id
+                    type: number
+                  - field: tache_id
+                    type: number
+                  - field: titre
+                    type: string
+                  - field: complete
+                    type: boolean
+            - component: PageRow
+              name: pageRow1
+              props:
+                justifyContent: start
+              children:
+                - component: PageColumn
+                  name: pageColumn1
+                  layout:
+                    columnSize: 0.9999664004093981
+                  children:
+                    - component: Text
+                      name: textId2
+                      props:
+                        value: id
+                    - component: Text
+                      name: textTitre2
+                      props:
+                        value: titre
+                    - component: Text
+                      name: textCreation2
+                      props:
+                        value: date de création
+                    - component: Text
+                      name: textEcheance2
+                      props:
+                        value: date d'échéance
+                    - component: Text
+                      name: textComplete2
+                      props:
+                        value: complete
+                - component: PageColumn
+                  name: pageColumn2
+                  layout:
+                    columnSize: 1
+                  children:
+                    - component: Text
+                      name: textId
+                      layout:
+                        columnSize: 1
+                      props:
+                        value:
+                          $$jsExpression: detailTache.data?detailTache.data.tache.id:""
+                    - component: Text
+                      name: textTitre
+                      props:
+                        value:
+                          $$jsExpression: detailTache.data?detailTache.data.tache?detailTache.data.tache.titre:"":""
+                    - component: Text
+                      name: textCreation
+                      props:
+                        value:
+                          $$jsExpression: detailTache.data?detailTache.data.tache.date_debut:""
+                    - component: Text
+                      name: textEcheance
+                      props:
+                        value:
+                          $$jsExpression: detailTache.data?detailTache.data.tache.date_echeance:""
+                    - component: Text
+                      name: textComplete
+                      props:
+                        value:
+                          $$jsExpression: detailTache.data?detailTache.data.tache.complete:""
+    - component: PageRow
+      name: pageRow2
+      props:
+        justifyContent: start
+      children:
+        - component: Button
+          name: buttonSupprimerTache
+          layout:
+            columnSize: 1.002035821816266
+          props:
+            content: supprimer Tache
+            onClick:
+              $$jsExpressionAction: supprimerTache.call();toutesTaches.refetch()
+        - component: Button
+          name: buttonToggleTache
+          props:
+            content: tache Fini
+            onClick:
+              $$jsExpressionAction: toggleTache.call();toutesTaches.refetch();
+          layout:
+            columnSize: 1.187148077301441
+        - component: Button
+          name: buttonSupprimerSousTache
+          layout:
+            columnSize: 0.9435419392920298
+          props:
+            content: supprimer sous-tache
+            onClick:
+              $$jsExpressionAction: supprimerSousTache.call();detailTache.refetch()
+        - component: Button
+          name: button
+          props:
+            content: sous-tache fini
+            onClick:
+              $$jsExpressionAction: toggleSousTache.call(); detailTache.refetch();
+          layout:
+            columnSize: 0.8672741615902635
+    - component: PageRow
+      name: pageRow6
+      props:
+        justifyContent: start
+      children:
+        - component: Form
+          name: formCreeTache
+          layout:
+            columnSize: 1
+          props:
+            submitButtonText: Enregistrer
+            onSubmit:
+              $$jsExpressionAction: creeTache.call();toutesTaches.refetch()
+          children:
+            - component: Text
+              name: creeUneTache
+              props:
+                value: Créer une tache
+                variant: h3
+            - component: PageRow
+              name: pageRow7
+              props:
+                justifyContent: start
+              children:
+                - component: PageColumn
+                  name: pageColumn3
+                  layout:
+                    columnSize: 1
+                  children:
+                    - component: Text
+                      name: creeTacheTitre
+                      layout:
+                        columnSize: 1
+                      props:
+                        value: Titre
+                    - component: Text
+                      name: creeTacheDescription
+                      layout:
+                        columnSize: 1
+                      props:
+                        value: Description
+                    - component: Text
+                      name: creeTacheDate
+                      layout:
+                        columnSize: 0.6545820802472815
+                      props:
+                        value: Date d'échéance
+                    - component: Text
+                      name: creeTacheComplete
+                      layout:
+                        columnSize: 0.4857995172839443
+                      props:
+                        value: Complete
+                - component: PageColumn
+                  name: pageColumn4
+                  layout:
+                    columnSize: 1
+                  children:
+                    - component: TextField
+                      name: creeTacheTitre2
+                      layout:
+                        columnSize: 1
+                      props:
+                        fullWidth: true
+                        isRequired: true
+                    - component: TextField
+                      name: creeTacheDescription2
+                      layout:
+                        columnSize: 1
+                      props:
+                        isRequired: true
+                        fullWidth: true
+                    - component: DatePicker
+                      name: datePickerCreeT
+                      props:
+                        fullWidth: true
+                    - component: Checkbox
+                      name: checkboxCreeTache
+                      layout:
+                        columnSize: 1.292641518459209
+                      props:
+                        mode: checkbox
+                        label: ""
+        - component: Form
+          name: formCreeSousTache
+          children:
+            - component: Text
+              name: creeUneSousTache
+              props:
+                value: Créer une sous-tache
+                variant: h3
+            - component: PageRow
+              name: pageRow3
+              props:
+                justifyContent: start
+              children:
+                - component: PageColumn
+                  name: pageColumn5
+                  layout:
+                    columnSize: 1
+                  children:
+                    - component: Text
+                      name: creeSousTacheTitre
+                      layout:
+                        columnSize: 1
+                      props:
+                        value: Titre
+                    - component: Text
+                      name: creeSousTacheTache
+                      layout:
+                        columnSize: 1
+                      props:
+                        value: Id de la tache
+                    - component: Text
+                      name: creeSousTacheComplete2
+                      layout:
+                        columnSize: 1
+                      props:
+                        value: Complete
+                - component: PageColumn
+                  name: pageColumn6
+                  layout:
+                    columnSize: 1
+                  children:
+                    - component: TextField
+                      name: creeSousTacheTitre2
+                      layout:
+                        columnSize: 1
+                      props:
+                        isRequired: true
+                    - component: TextField
+                      name: creeSousTacheTache2
+                      layout:
+                        columnSize: 1
+                      props:
+                        isRequired: true
+                        password: false
+                    - component: Checkbox
+                      name: checkboxCreeSousTache
+                      layout:
+                        columnSize: 1
+                      props:
+                        mode: checkbox
+                        label: ""
+          props:
+            submitButtonText: Enregistrer
+            onSubmit:
+              $$jsExpressionAction: creeSousTache.call();detailTache.refetch()
+          layout:
+            columnSize: 1
+    - component: PageRow
+      name: pageRow4
+      children:
+        - component: Form
+          name: formModifierTache
+          children:
+            - component: Text
+              name: modifierTache
+              props:
+                value: Modifier une tache
+                variant: h3
+            - component: PageRow
+              name: pageRow5
+              props:
+                justifyContent: start
+              children:
+                - component: Text
+                  name: modifierTacheTitre
+                  props:
+                    value: Titre
+                - component: TextField
+                  name: modifierTacheTitre2
+                  props:
+                    disabled: false
+                    isRequired: true
+            - component: PageRow
+              name: pageRow8
+              props:
+                justifyContent: start
+              children:
+                - component: Text
+                  name: modifierTacheDescription
+                  props:
+                    value: Description
+                - component: TextField
+                  name: modifierTacheDescription2
+                  props:
+                    isRequired: true
+            - component: PageRow
+              name: pageRow9
+              props:
+                justifyContent: start
+              children:
+                - component: Text
+                  name: modifierTacheEcheance
+                  props:
+                    value: Date d'échéance
+                - component: DatePicker
+                  name: datePickerModifierTache
+                  props:
+                    isRequired: true
+            - component: PageRow
+              name: pageRow10
+              props:
+                justifyContent: start
+              children:
+                - component: Text
+                  name: modifierTacheComplete
+                  props:
+                    value: Complete
+                - component: Checkbox
+                  name: checkboxModifierTache
+                  props:
+                    mode: checkbox
+                    label: ""
+          props:
+            submitButtonText: Enregistrer
+            onSubmit:
+              $$jsExpressionAction: modifierT.call();toutesTaches.refetch()
+        - component: Form
+          name: formModifierSousTache
+          children:
+            - component: Text
+              name: modifierSousTache
+              props:
+                value: Modifier une sous-tache
+                variant: h3
+            - component: PageRow
+              name: pageRow12
+              props:
+                justifyContent: start
+              children:
+                - component: Text
+                  name: modifierSousTacheTitre
+                  props:
+                    value: Titre
+                - component: TextField
+                  name: modifierSousTacheTitre2
+                  props:
+                    isRequired: true
+            - component: PageRow
+              name: pageRow11
+              props:
+                justifyContent: start
+              children:
+                - component: Text
+                  name: modifierSousTacheComplete
+                  props:
+                    value: Complete
+                - component: Checkbox
+                  name: checkboxModifierSousTache
+                  props:
+                    mode: checkbox
+                    label: ""
+          props:
+            submitButtonText: Enregistrer
+            onSubmit:
+              $$jsExpressionAction: modifierSousT.call();detailTache.refetch()
+      props:
+        justifyContent: start
+  queries:
+    - name: toutesTaches
+      mode: query
+      query:
+        kind: rest
+        url:
+          $$jsExpression: parameters.lien + "/api/taches/liste"
+        headers:
+          [
+            {
+              name: Authorization,
+              value: { $$jsExpression: '"cle_api " + parameters.cle' },
+            },
+          ]
+        body:
+          kind: raw
+          content:
+            $$jsExpression: '`{"complete": ${parameters.complete}}`'
+          contentType: application/json
+        method: POST
+        searchParams: []
+      parameters:
+        - name: complete
+          value:
+            $$jsExpression: checkboxComplete.checked?checkboxComplete.checked:false
+        - name: lien
+          value:
+            $$env: API_HOST
+        - name: cle
+          value:
+            $$env: API_KEY
+    - name: detailTache
+      mode: query
+      query:
+        kind: rest
+        url:
+          $$jsExpression: parameters.lien+"/api/taches/" + parameters.id
+        searchParams: []
+        headers:
+          - name: Authorization
+            value:
+              $$jsExpression: '"cle_api "+ parameters.cle_api'
+        method: GET
+      parameters:
+        - name: lien
+          value:
+            $$env: API_HOST
+        - name: cle_api
+          value:
+            $$env: API_KEY
+        - name: id
+          value:
+            $$jsExpression: dataGridTache.selection?dataGridTache.selection.id:dataGridTache.rows[0].id
+      enabled: false
+    - name: supprimerTache
+      mode: mutation
+      query:
+        kind: rest
+        url:
+          $$jsExpression: parameters.lien + "/api/taches/" + parameters.tache
+        headers:
+          [
+            {
+              name: Authorization,
+              value: { $$jsExpression: '"cle_api "+ parameters.cle_api' },
+            },
+          ]
+        method: DELETE
+        searchParams: []
+      parameters:
+        - name: lien
+          value:
+            $$env: API_HOST
+        - name: cle_api
+          value:
+            $$env: API_KEY
+        - name: tache
+          value:
+            $$jsExpression: dataGridTache.selection?dataGridTache.selection.id:-1
+    - name: supprimerSousTache
+      mode: mutation
+      query:
+        kind: rest
+        url:
+          $$jsExpression: parameters.lien + "/api/sousTaches/" + parameters.sousTache
+        headers:
+          - name: Authorization
+            value:
+              $$jsExpression: '"cle_api "+ parameters.cle_api'
+        method: DELETE
+        body:
+          kind: raw
+          content:
+            $$jsExpression: '`{"tache_id" : ${parameters.tache}}`'
+          contentType: application/json
+        searchParams: []
+      parameters:
+        - name: lien
+          value:
+            $$env: API_HOST
+        - name: cle_api
+          value:
+            $$env: API_KEY
+        - name: sousTache
+          value:
+            $$jsExpression: dataGridSousTache.selection?dataGridSousTache.selection.id:-1
+        - name: tache
+          value:
+            $$jsExpression: dataGridSousTache.selection?dataGridSousTache.selection.tache_id:-1
+    - name: toggleTache
+      mode: mutation
+      query:
+        kind: rest
+        url:
+          $$jsExpression: parameters.lien + "/api/taches/status/" + parameters.tache
+        headers:
+          - name: Authorization
+            value:
+              $$jsExpression: '"cle_api " + parameters.cle_api'
+        body:
+          kind: raw
+          content:
+            $$jsExpression: '`{"complete": true}`'
+          contentType: application/json
+        method: PUT
+        searchParams: []
+      parameters:
+        - name: lien
+          value:
+            $$env: API_HOST
+        - name: cle_api
+          value:
+            $$env: API_KEY
+        - name: tache
+          value:
+            $$jsExpression: dataGridTache.selection?dataGridTache.selection.id:-1
+    - name: toggleSousTache
+      mode: mutation
+      query:
+        kind: rest
+        url:
+          $$jsExpression: parameters.lien + "/api/sousTaches/status/" + parameters.sousTache
+        headers:
+          [
+            {
+              name: Authorization,
+              value: { $$jsExpression: '"cle_api " + parameters.cle_api' },
+            },
+          ]
+        method: PUT
+        body:
+          kind: raw
+          content:
+            $$jsExpression: '`{"tache_id": ${parameters.tache}, "complete": true}`'
+          contentType: application/json
+        searchParams: []
+      parameters:
+        - name: lien
+          value:
+            $$env: API_HOST
+        - name: cle_api
+          value:
+            $$env: API_KEY
+        - name: sousTache
+          value:
+            $$jsExpression: dataGridSousTache.selection?dataGridSousTache.selection.id:-1
+        - name: tache
+          value:
+            $$jsExpression: dataGridSousTache.selection?dataGridSousTache.selection.tache_id:-1
+    - name: creeTache
+      mode: mutation
+      query:
+        kind: rest
+        url:
+          $$jsExpression: parameters.lien + "/api/taches/"
+        searchParams:
+          - name: Authorization
+            value:
+              $$jsExpression: '"cle_api "+parameters.cle_api'
+        headers:
+          - name: Authorization
+            value:
+              $$jsExpression: '"cle_api "+parameters.cle_api'
+        body:
+          kind: raw
+          content:
+            $$jsExpression: '`{"titre": "${parameters.titre}", "description":
+              "${parameters.description}", "date_echeance":
+              "${parameters.dateEcheance}", "complete":
+              ${parameters.complete}}`'
+          contentType: application/json
+        method: POST
+      parameters:
+        - name: lien
+          value:
+            $$env: API_HOST
+        - name: cle_api
+          value:
+            $$env: API_KEY
+        - name: titre
+          value:
+            $$jsExpression: creeTacheTitre2.value?creeTacheTitre2.value:""
+        - name: dateEcheance
+          value:
+            $$jsExpression: datePickerCreeT.value?datePickerCreeT.value:"2005-04-18"
+        - name: complete
+          value:
+            $$jsExpression: checkboxCreeTache.checked?true:false
+        - name: description
+          value:
+            $$jsExpression: 'creeTacheDescription2.value?creeTacheDescription2.value: ""'
+    - name: creeSousTache
+      mode: mutation
+      query:
+        kind: rest
+        url:
+          $$jsExpression: parameters.lien+"/api/sousTaches"
+        headers:
+          - name: Authorization
+            value:
+              $$jsExpression: '"cle_api "+ parameters.cle_api'
+        body:
+          kind: raw
+          content:
+            $$jsExpression: '`{"tache_id":${parameters.tache},
+              "titre":"${parameters.titre}",
+              "complete":${parameters.complete}}`'
+          contentType: application/json
+        method: POST
+        searchParams: []
+      parameters:
+        - name: lien
+          value:
+            $$env: API_HOST
+        - name: cle_api
+          value:
+            $$env: API_KEY
+        - name: titre
+          value:
+            $$jsExpression: creeSousTacheTitre2.value?creeSousTacheTitre2.value:""
+        - name: tache
+          value:
+            $$jsExpression: creeSousTacheTache2.value?creeSousTacheTache2.value:""
+        - name: complete
+          value:
+            $$jsExpression: checkboxCreeSousTache.checked?true:false
+    - name: modifierT
+      mode: mutation
+      query:
+        kind: rest
+        url:
+          $$jsExpression: parameters.lien + "/api/taches/" + parameters.tache
+        headers:
+          [
+            {
+              name: Authorization,
+              value: { $$jsExpression: '"cle_api "+ parameters.cle_api' },
+            },
+          ]
+        body:
+          kind: raw
+          content:
+            $$jsExpression: '`{"titre":"${parameters.titre}",
+              "description":"${parameters.description}",
+              "date_echeance":"${parameters.echeance}",
+              "complete":${parameters.complete}}`'
+          contentType: application/json
+        method: PUT
+        searchParams: []
+      parameters:
+        - name: lien
+          value:
+            $$env: API_HOST
+        - name: cle_api
+          value:
+            $$env: API_KEY
+        - name: tache
+          value:
+            $$jsExpression: dataGridTache.selection?dataGridTache.selection.id:-1
+        - name: titre
+          value:
+            $$jsExpression: modifierTacheTitre2.value?modifierTacheTitre2.value:""
+        - name: description
+          value:
+            $$jsExpression: modifierTacheDescription2.value?modifierTacheDescription2.value:""
+        - name: echeance
+          value:
+            $$jsExpression: datePickerModifierTache.value?datePickerModifierTache.value:"2005-04-18"
+        - name: complete
+          value:
+            $$jsExpression: checkboxCreeTache.checked?true:false
+    - name: modifierSousT
+      mode: mutation
+      query:
+        kind: rest
+        url:
+          $$jsExpression: parameters.lien + "/api/sousTaches/" + parameters.sousTache
+        headers:
+          - name: Authorization
+            value:
+              $$jsExpression: '"cle_api "+parameters.cle_api'
+        body:
+          kind: raw
+          content:
+            $$jsExpression: '`{"titre":"${parameters.titre}", "complete":
+              ${parameters.complete}}`'
+          contentType: application/json
+        method: PUT
+        searchParams: []
+      parameters:
+        - name: lien
+          value:
+            $$env: API_HOST
+        - name: cle_api
+          value:
+            $$env: API_KEY
+        - name: titre
+          value:
+            $$jsExpression: modifierSousTacheTitre2.value?modifierSousTacheTitre2.value:""
+        - name: complete
+          value:
+            $$jsExpression: checkboxModifierSousTache.checked?true:false
+        - name: sousTache
+          value:
+            $$jsExpression: dataGridSousTache.selection?dataGridSousTache.selection.id:-1

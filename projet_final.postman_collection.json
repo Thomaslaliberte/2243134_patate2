@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nom\": \"Laliberte\",\r\n    \"prenom\": \"Thomas\",\r\n    \"courriel\": \"thomas.laliberthe@icloud.com\",\r\n    \"mot_de_passe\": \"admin\"\r\n}",
+					"raw": "{\r\n    \"nom\": \"toolpad\",\r\n    \"prenom\": \"toolpad\",\r\n    \"courriel\": \"toolpad\",\r\n    \"mot_de_passe\": \"toolpad\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -74,7 +74,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "cle-api 1e5855a7-6ccd-4604-afe6-4684cbbf4ebc",
+						"value": "cle-api f1659bd5-595a-4985-9f78-bd9165e1b752",
 						"type": "text"
 					}
 				],
@@ -118,7 +118,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "cle_api 1e5855a7-6ccd-4604-afe6-4684cbbf4ebc",
+						"value": "cle_api f1659bd5-595a-4985-9f78-bd9165e1b752",
 						"type": "text"
 					}
 				],
@@ -132,7 +132,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://two243134-patate1.onrender.com/api/taches/1",
+					"raw": "https://two243134-patate1.onrender.com/api/taches/30",
 					"protocol": "https",
 					"host": [
 						"two243134-patate1",
@@ -142,7 +142,7 @@
 					"path": [
 						"api",
 						"taches",
-						"1"
+						"30"
 					]
 				}
 			},
@@ -155,7 +155,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "cle_api 1e5855a7-6ccd-4604-afe6-4684cbbf4ebc",
+						"value": "cle_api f1659bd5-595a-4985-9f78-bd9165e1b752",
 						"type": "text"
 					}
 				],
@@ -193,7 +193,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "cle_api 1e5855a7-6ccd-4604-afe6-4684cbbf4ebc",
+						"value": "cle_api f1659bd5-595a-4985-9f78-bd9165e1b752",
 						"type": "text"
 					}
 				],
@@ -221,7 +221,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "cle_api 1e5855a7-6ccd-4604-afe6-4684cbbf4ebc",
+						"value": "cle_api f1659bd5-595a-4985-9f78-bd9165e1b752",
 						"type": "text"
 					}
 				],
@@ -261,7 +261,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "cle_api 1e5855a7-6ccd-4604-afe6-4684cbbf4ebc",
+						"value": "cle_api f1659bd5-595a-4985-9f78-bd9165e1b752",
 						"type": "text"
 					}
 				],
@@ -305,7 +305,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "cle-api 1e5855a7-6ccd-4604-afe6-4684cbbf4ebc",
+						"value": "cle-api f1659bd5-595a-4985-9f78-bd9165e1b752",
 						"type": "text"
 					}
 				],
@@ -348,7 +348,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "cle_api 1e5855a7-6ccd-4604-afe6-4684cbbf4ebc",
+						"value": "cle_api f1659bd5-595a-4985-9f78-bd9165e1b752",
 						"type": "text"
 					}
 				],
@@ -385,13 +385,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "cle_api 1e5855a7-6ccd-4604-afe6-4684cbbf4ebc",
+						"value": "cle_api f1659bd5-595a-4985-9f78-bd9165e1b752",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"tache_id\": 1,\r\n    \"complete\": true\r\n}",
+					"raw": "{\r\n    \"complete\": true\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -423,13 +423,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "cle_api 1e5855a7-6ccd-4604-afe6-4684cbbf4ebc",
+						"value": "cle_api f1659bd5-595a-4985-9f78-bd9165e1b752",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"tache_id\":1\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"

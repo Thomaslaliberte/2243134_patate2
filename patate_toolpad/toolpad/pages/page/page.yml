@@ -324,8 +324,6 @@ spec:
                 variant: h3
             - component: PageRow
               name: pageRow5
-              props:
-                justifyContent: start
               children:
                 - component: Text
                   name: modifierTacheTitre
@@ -336,6 +334,8 @@ spec:
                   props:
                     disabled: false
                     isRequired: true
+              props:
+                justifyContent: start
             - component: PageRow
               name: pageRow8
               props:
@@ -376,6 +376,8 @@ spec:
                   props:
                     mode: checkbox
                     label: ""
+          layout:
+            columnSize: 1
           props:
             submitButtonText: Enregistrer
             onSubmit:
@@ -574,7 +576,7 @@ spec:
         body:
           kind: raw
           content:
-            $$jsExpression: '`{"tache_id": ${parameters.tache}, "complete": true}`'
+            $$jsExpression: '`{ "complete": true}`'
           contentType: application/json
         searchParams: []
       parameters:
@@ -587,9 +589,6 @@ spec:
         - name: sousTache
           value:
             $$jsExpression: dataGridSousTache.selection?dataGridSousTache.selection.id:-1
-        - name: tache
-          value:
-            $$jsExpression: dataGridSousTache.selection?dataGridSousTache.selection.tache_id:-1
     - name: creeTache
       mode: mutation
       query:
